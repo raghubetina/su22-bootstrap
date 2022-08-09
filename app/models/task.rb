@@ -16,5 +16,5 @@ class Task < ApplicationRecord
 
   validates :status, :presence => true
 
-  validates :user, :present => true
+  validates :user, :presence => true
 end
