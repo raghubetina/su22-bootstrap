@@ -1,6 +1,6 @@
 class TasksController < ApplicationController
   def index
-    matching_tasks = Task.all
+    matching_tasks = Task.order(:created => :desc)
 
     @list_of_tasks = matching_tasks.order({ :created_at => :desc })
 
@@ -20,8 +20,7 @@ class TasksController < ApplicationController
   def create
     the_task = Task.new
     the_task.body = params.fetch("query_body")
-    the_task.status = params.fetch("query_status")
-    the_task.user_id = params.fetch("query_user_id")
+    the_task.user_id = session[:user_id]
 
     if the_task.valid?
       the_task.save

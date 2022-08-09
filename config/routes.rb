@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-
+  get("/", { :controller => "tasks", :action => "index" })
 
   # Routes for the Task resource:
 
