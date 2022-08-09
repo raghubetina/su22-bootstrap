@@ -10,4 +10,11 @@
 #  user_id    :integer
 #
 class Task < ApplicationRecord
+  belongs_to :user
+
+  validates :body, :presence => true
+
+  validates :status, :presence => true
+
+  validates :user, :present => true
 end
