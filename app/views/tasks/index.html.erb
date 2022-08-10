@@ -1,50 +1,12 @@
-<button type="button" class="btn btn-primary">Primary</button>
-<button type="button" class="btn btn-secondary">Secondary</button>
-<button type="button" class="btn btn-success">Success</button>
-<button type="button" class="btn btn-danger">Danger</button>
-<button type="button" class="btn btn-warning">Warning</button>
-<button type="button" class="btn btn-info">Info</button>
-<button type="button" class="btn btn-light">Light</button>
-<button type="button" class="btn btn-dark">Dark</button>
-
-<button type="button" class="btn btn-link">Link</button>
-
-
-<div>
-  <div>
-    <h1>
-      List of all tasks
-    </h1>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      1
+    </div>
   </div>
-</div>
 
-<hr>
-
-<div>
-  <div>
-    <h2>
-      Add a new task
-    </h2>
-
-    <form action="/insert_task" method="post">
-      <div>
-        <label for="body_box">
-          Body
-        </label>
-
-        <textarea id="body_box" name="query_body" rows="3"></textarea>
-      </div>
-
-      <button class="btn btn-primary">
-        Create task
-      </button>
-    </form>
-  </div>
-</div>
-
-<hr>
-<div>
-  <div>
+  <div class="row">
+    <div class="col-md-4">
     <table border="1">
       <tr>
         <th>
@@ -75,39 +37,84 @@
         </th>
       </tr>
 
+      <ul class="list-group">
       <% @list_of_tasks.each do |a_task| %>
-      <tr>
-        <td>
-          <%= a_task.id %>
-        </td>
-
-        <td>
-          <%= a_task.body %>
-        </td>
-
-        <td>
-          <%= a_task.status %>
-        </td>
-
-        <td>
-          <%= a_task.user_id %>
-        </td>
-
-        <td>
-          <%= time_ago_in_words(a_task.created_at) %> ago
-        </td>
-        <td>
-          <%= time_ago_in_words(a_task.updated_at) %> ago
-        </td>
-
-        <td>
-          <a href="/tasks/<%= a_task.id %>">
-            Show details
-          </a>
-        </td>
-      </tr>
+          <li class="list-group-item">
+            <%= a_task.body %>
+          </li>
       <% end %>
+      </ul>
     </table>
+    </div>
+    <div class="col-md-4">2</div>
+    <div class="col-md-4">3</div>
+  </div>
+</div>
+<%# 
+<style>
+  * { border: thin red solid; }
+</style> %>
+
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#zebra">
+  Add a task
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="zebra" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form action="/insert_task" method="post">
+          <div>
+            <label for="body_box">
+              Body
+            </label>
+
+            <textarea id="body_box" name="query_body" rows="3"></textarea>
+          </div>
+
+          <button class="btn btn-primary">
+            Create task
+          </button>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div>
+  <div>
+    <h1>
+      List of all tasks
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new task
+    </h2>
+
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+
   </div>
 </div>
 
